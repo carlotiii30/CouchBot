@@ -17,7 +17,7 @@
 ## 🚀 ¿Cómo usar HealthyCouchBot?
 
 1. **Busca el bot en Telegram**:  
-   Ve a [https://t.me/couchbot](https://t.me/HealthyCouchBot) o búscalo como `@HealthyCouchBot`.
+   Ve a [https://t.me/HealthyCouchBot](https://t.me/HealthyCouchBot) o búscalo como `@HealthyCouchBot`.
 
 2. **Escribe `/start` para comenzar**  
    El bot guardará tus datos de manera individual para enviarte recordatorios personalizados.
@@ -54,19 +54,26 @@ Si quieres desplegar tu propia versión:
 pip install python-telegram-bot apscheduler
 ```
 
-3. **Cambia el token en `bot.py`**:
+3. **Cambia el token en `.env`**:
 
-```python
-BOT_TOKEN = "TU_TOKEN_AQUI"
+```dotenv
+BOT_TOKEN=TU_TOKEN_AQUI
 ```
 
 4. **Ejecuta el bot**:
 
 ```bash
-python bot.py
+python bot/main.py
 ```
 
-Para mantener el bot activo 24/7, considera desplegarlo en plataformas como **Render**, **Railway** o un **VPS**.
+### 🚀 Despliegue automático con Render
+
+Si tu repositorio tiene `render.yaml` y `requirements.txt`, puedes desplegarlo automáticamente:
+
+1. Sube tu código a GitHub.
+2. Entra en [https://render.com](https://render.com) y crea un nuevo Web Service.
+3. Conecta tu repositorio y añade la variable `BOT_TOKEN` como variable de entorno.
+4. Render instalará todo y ejecutará el bot automáticamente.
 
 ---
 
@@ -78,4 +85,4 @@ HealthyCouchBot nació como herramienta personal de bienestar, y ahora está dis
 
 ## 🛡️ Licencia
 
-MIT — Puedes usar, modificar y compartir **CouchBot** libremente.
+MIT — Puedes usar, modificar y compartir **HealthyCouchBot** libremente.
