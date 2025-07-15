@@ -3,8 +3,8 @@ import asyncio
 from dotenv import load_dotenv
 from apscheduler.schedulers.background import BackgroundScheduler
 from telegram.ext import ApplicationBuilder, CommandHandler
-from water import WaterManager
-from movement import MovementManager
+from functions.water import WaterManager
+from functions.movement import MovementManager
 
 load_dotenv()
 
