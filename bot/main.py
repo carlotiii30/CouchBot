@@ -36,6 +36,19 @@ async def start(update, context):
     )
 
 
+async def get_user_info(update, context):
+    chat_id = update.effective_chat.id
+    if chat_id not in user_data:
+        await update.message.reply_text("Primero ejecuta /start.")
+        return
+    data = user_data[chat_id]
+    await update.message.reply_text(
+        f"📊 Información actual:\n"
+        f"💧 Agua consumida: {data['water']}/{data['goal']} vasos\n"
+        f"🕐 Jornada laboral: {data['work_start']}:00 a {data['work_end']}:00"
+    )
+
+
 def reset_daily_data():
     for data in user_data.values():
         data["water"] = 0
@@ -80,6 +93,7 @@ async def main():
             lambda update, context: movement_manager.set_work_schedule(update, context),
         )
     )
+    app.add_handler(CommandHandler("info", get_user_info))
 
     scheduler = BackgroundScheduler(timezone="Europe/Madrid")
     scheduler.add_job(
