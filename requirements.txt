@@ -2,3 +2,4 @@ python-telegram-bot==20.7
 apscheduler==3.10.4
 python-dotenv==1.0.1
 dotenv==0.9.9
+nest_asyncio==1.6.0

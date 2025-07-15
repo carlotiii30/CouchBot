@@ -1,4 +1,5 @@
 import os
+import nest_asyncio
 import asyncio
 from dotenv import load_dotenv
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -78,4 +79,7 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    nest_asyncio.apply()
+
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(main())
